@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new(review_params)
-    @review.restaurant = @restaurant # TODO: understand this line!
+    @review.restaurant = @restaurant # same as: @review.restaurant_id = @restaurant.id
     if @review.save
       redirect_to restaurant_path(@restaurant), notice: 'Review was successfully created.'
     else
